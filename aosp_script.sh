@@ -7,7 +7,7 @@
 # sudo apt install nano tmux htop neofetch btop
 
 MY_ROOT_DIR="~"
-MY_WORKSPACE_DIR="derp"
+MY_WORKSPACE_DIR="pixelage"
 MY_ROM="https://github.com/ProjectPixelage/android_manifest.git"
 MY_ROM_BRANCH="15"
 MY_LOCAL_MANIFEST="15-pixelage"
@@ -20,10 +20,10 @@ KEYS_BRANCH="15.0-pixelage"
 LUNCH_CMD=pixelage_ice-ap3a-userdebug
 MAKE_CMD=bacon
 
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
-export CCACHE_COMPRESS=1
-MY_CCACHE_SIZE=50G
+#export USE_CCACHE=1
+#export CCACHE_EXEC=/usr/bin/ccache
+#export CCACHE_COMPRESS=1
+#MY_CCACHE_SIZE=50G
 
 export TZ=Asia/Kolkata
 export BUILD_USERNAME=DevInfinix
@@ -34,15 +34,15 @@ export BUILD_HOSTNAME=Garudinix
 ######################### LET IT COOK ##########################
 ################################################################
 
-sudo apt-get update && sudo apt-get upgrade -y
+#sudo apt-get update && sudo apt-get upgrade -y
 
 cd $MY_ROOT_DIR
 
-sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev neofetch htop tmux netcat
+#sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev neofetch htop tmux netcat
 
-bash <(curl -s https://raw.githubusercontent.com/akhilnarang/scripts/master/setup/android_build_env.sh)
+#bash <(curl -s https://raw.githubusercontent.com/akhilnarang/scripts/master/setup/android_build_env.sh)
 
-ccache -M $MY_CCACHE_SIZE
+#ccache -M $MY_CCACHE_SIZE
 
 git lfs install
 
@@ -85,14 +85,15 @@ echo "========================================================================"
 ################################################################
 
 # Check if the directory exists
-if [ -d "$DIRKEYS" ]; then
-    echo "Directory $DIRKEYS exists. Deleting it..."
-    rm -rf "$DIRKEYS"
-    echo "Directory deleted."
-else
-    echo "Directory $DIRKEYS does not exist. No need to delete."
-fi
+#if [ -d "$DIRKEYS" ]; then
+#    echo "Directory $DIRKEYS exists. Deleting it..."
+#    rm -rf "$DIRKEYS"
+#    echo "Directory deleted."
+#else
+#    echo "Directory $DIRKEYS does not exist. No need to delete."
+#fi
 
+rm -rf "$DIRKEYS"
 echo "Cloning the repository..."
 git clone https://github.com/DevInfinix/devinfinix-aosp-roms-keys --depth=1 -b $KEYS_BRANCH "$DIRKEYS"
 
